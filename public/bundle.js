@@ -104,7 +104,18 @@ eval("/* Mapbox GL JS is licensed under the 3-Clause BSD License. Full text of l
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("const mapboxgl = __webpack_require__(/*! mapbox-gl */ \"./node_modules/mapbox-gl/dist/mapbox-gl.js\");\n\nmapboxgl.accessToken = \"pk.eyJ1IjoianNrb290c2t5IiwiYSI6ImNrNXdwY20wNTFoM2gzbXJ6ZTk4Z3RiZGoifQ.BCnA1KAwI_dzeV-bAoi0Pg\";\n\nconst map = new mapboxgl.Map({\n  container: \"map\",\n  center: [-74.009, 40.705], // FullStack NY coordinates; alternatively, use [-87.6354, 41.8885] for Chicago\n  zoom: 12, // starting zoom\n  style: \"mapbox://styles/mapbox/streets-v10\" // mapbox has lots of different map styles available.\n});\n\nconst eleMark = document.createElement(\"div\");\n// mapElement - set width and height\neleMark.style.width = \"32px\";\neleMark.style.height = \"39px\";\neleMark.style.backgroundImage = \"url(http://i.imgur.com/WbMOfMl.png)\";\n\n\n//new mapboxgl.Marker(YOUR_DOM_ELEMENT).setLngLat(YOUR_COORDS_ARRAY).addTo(map);\n\n// view local: file:///.... Trip-Planner-Part1/public/index.html\nnew mapboxgl.Marker(eleMark).setLngLat([-74.009, 40.705]).addTo(map);\n\n/* var marker = new mapboxgl.Marker()\n.setLngLat([30.5, 50.5])\n.addTo(map); */\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("const mapboxgl = __webpack_require__(/*! mapbox-gl */ \"./node_modules/mapbox-gl/dist/mapbox-gl.js\")\nconst buildMarker = __webpack_require__(/*! ./marker */ \"./src/marker.js\")\nmapboxgl.accessToken =\n  'pk.eyJ1IjoianNrb290c2t5IiwiYSI6ImNrNXdwY20wNTFoM2gzbXJ6ZTk4Z3RiZGoifQ.BCnA1KAwI_dzeV-bAoi0Pg'\n\nconst map = new mapboxgl.Map({\n  container: 'map',\n  center: [-74.009, 40.705], // FullStack NY coordinates; alternatively, use [-87.6354, 41.8885] for Chicago\n  zoom: 12, // starting zoom\n  style: 'mapbox://styles/mapbox/streets-v10' // mapbox has lots of different map styles available.\n})\n\nconst eleMark = buildMarker('hotel');\n\n//new mapboxgl.Marker(YOUR_DOM_ELEMENT).setLngLat(YOUR_COORDS_ARRAY).addTo(map);\n\n// view local: file:///.... Trip-Planner-Part1/public/index.html\nnew mapboxgl.Marker(eleMark).setLngLat([-74.009, 40.705]).addTo(map)\n\n/* var marker = new mapboxgl.Marker()\n.setLngLat([30.5, 50.5])\n.addTo(map); */\n\n\n//# sourceURL=webpack:///./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/marker.js":
+/*!***********************!*\
+  !*** ./src/marker.js ***!
+  \***********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("const mapboxgl = __webpack_require__(/*! mapbox-gl */ \"./node_modules/mapbox-gl/dist/mapbox-gl.js\")\n\n// new mapboxgl.Marker(eleMark)\n\nconst buildMarker = (name = 'activity') => {\n    console.log(\"I am inside build Marker\");\n  const eleMark = document.createElement('div')\n  // mapElement - set width and height\n  eleMark.style.width = '32px'\n  eleMark.style.height = '39px'\n\n    eleMark.style.backgroundImage = 'url(http://i.imgur.com/WbMOfMl.png)'\n  if (name === 'hotel')\n    eleMark.style.backgroundImage = 'url(http://i.imgur.com/D9574Cu.png)'\n  if (name === 'restaurant')\n    eleMark.style.backgroundImage = 'url(http://i.imgur.com/cqR6pUI.png)'\n  return eleMark\n}\n\nmodule.exports = buildMarker;\n\n\n//# sourceURL=webpack:///./src/marker.js?");
 
 /***/ })
 
