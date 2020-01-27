@@ -1,0 +1,11 @@
+{
+  "name": "trip-planner-part1",
+  "version": "1.0.0",
+  "description": "SPA app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joshua Skootsky",
+  "license": "ISC"
+}
