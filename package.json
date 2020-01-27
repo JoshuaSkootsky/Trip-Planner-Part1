@@ -6,6 +6,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Joshua Skootsky",
+  "author": "Joshua Skootsky and Peter Chen",
   "license": "ISC"
 }
